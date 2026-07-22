@@ -32,7 +32,7 @@ public class Customer {
         this.password = password;
     }
 
-    // Getters and Setters
+    
 
     public int getCustomerId() {
         return customerId;
