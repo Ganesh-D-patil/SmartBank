@@ -2,6 +2,8 @@ package main;
 
 import model.Account;
 import model.Customer;
+import model.Transaction;
+import model.Admin;
 
 public class Main {
 
@@ -27,6 +29,24 @@ public class Main {
                 50000,
                 "Active"
         );
+        Transaction transaction = new Transaction(
+        		1,
+        		788750927,
+        		"Deposite",
+        		2234,
+        		"23-07-26",
+        		"5:50 AM",
+        		"Success"
+        		);
+        
+        Admin admin = new Admin(
+                1,
+                "Ganesh Patil",
+                "MayurGhuge@gmail.com",
+                "Pass123"
+        );
+
+        System.out.println(admin);
 
         // Print Customer Details
         System.out.println(customer);
@@ -36,5 +56,9 @@ public class Main {
 
         // Print Account Details
         System.out.println(account);
+        
+        System.out.println();
+        
+        System.out.println(transaction);
     }
 }
