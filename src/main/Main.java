@@ -1,15 +1,27 @@
 package main;
 
+import java.sql.Connection;
+
 import model.Account;
+import model.Admin;
 import model.Customer;
 import model.Transaction;
-import model.Admin;
+import util.DBConnection;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        // Customer Object
+        // ---------------- Database Connection ----------------
+        Connection connection = DBConnection.getConnection();
+
+        if (connection != null) {
+            System.out.println("Database Connected Successfully\n");
+        } else {
+            System.out.println("Database Connection Failed\n");
+        }
+
+        // ---------------- Customer ----------------
         Customer customer = new Customer(
                 101,
                 "Ganesh Patil",
@@ -21,7 +33,7 @@ public class Main {
                 "ganesh123"
         );
 
-        // Account Object
+        // ---------------- Account ----------------
         Account account = new Account(
                 10010001,
                 101,
@@ -29,36 +41,42 @@ public class Main {
                 50000,
                 "Active"
         );
+
+        // ---------------- Transaction ----------------
         Transaction transaction = new Transaction(
-        		1,
-        		788750927,
-        		"Deposite",
-        		2234,
-        		"23-07-26",
-        		"5:50 AM",
-        		"Success"
-        		);
-        
-        Admin admin = new Admin(
                 1,
-                "Ganesh Patil",
-                "MayurGhuge@gmail.com",
-                "Pass123"
+                10010001,
+                "Deposit",
+                2234,
+                "23-07-2026",
+                "05:50 AM",
+                "Success"
         );
 
+        // ---------------- Admin ----------------
+        Admin admin = new Admin(
+                1,
+                "Ganesh",
+                "Ganesh123",
+                "Pass@123",
+                "ganesh@gmail.com",
+                "8432630780"
+        );
+
+        
+
+        // ---------------- Print ----------------
         System.out.println(admin);
+        System.out.println();
 
-        // Print Customer Details
         System.out.println(customer);
-
-        // Print Account Details
         System.out.println();
 
-        // Print Account Details
         System.out.println(account);
-        
         System.out.println();
-        
+
         System.out.println(transaction);
     }
+
+	
 }

@@ -1,72 +1,79 @@
+package model;
 
+public class Admin {
 
-	package model;
+    private int adminId;
+    private String username;
+    private String password;
+    private String name;
+    private String email;
+    private String phone;
 
-	public class Admin {
+    public Admin() {
+    }
 
-	    // Instance Variables
-	    private int adminId;
-	    private String name;
-	    private String email;
-	    private String password;
+    public Admin(int adminId, String username, String password,
+                 String name, String email, String phone) {
 
-	    // Default Constructor
-	    public Admin() {
+        this.adminId = adminId;
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+    }
 
-	    }
+    public int getAdminId() {
+        return adminId;
+    }
 
-	    // Parameterized Constructor
-	    public Admin(int adminId, String name, String email, String password) {
-	        this.adminId = adminId;
-	        this.name = name;
-	        this.email = email;
-	        this.password = password;
-	    }
+    public void setAdminId(int adminId) {
+        this.adminId = adminId;
+    }
 
-	    // Getters
+    public String getUsername() {
+        return username;
+    }
 
-	    public int getAdminId() {
-	        return adminId;
-	    }
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	    public String getName() {
-	        return name;
-	    }
+    public String getPassword() {
+        return password;
+    }
 
-	    public String getEmail() {
-	        return email;
-	    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	    public String getPassword() {
-	        return password;
-	    }
+    public String getName() {
+        return name;
+    }
 
-	    // Setters
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	    public void setAdminId(int adminId) {
-	        this.adminId = adminId;
-	    }
+    public String getEmail() {
+        return email;
+    }
 
-	    public void setName(String name) {
-	        this.name = name;
-	    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	    public void setEmail(String email) {
-	        this.email = email;
-	    }
+    public String getPhone() {
+        return phone;
+    }
 
-	    public void setPassword(String password) {
-	        this.password = password;
-	    }
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
-	    @Override
-	    public String toString() {
-	        return "\n========== ADMIN DETAILS ==========\n" +
-	               "Admin ID : " + adminId + "\n" +
-	               "Name     : " + name + "\n" +
-	               "Email    : " + email + "\n" +
-	               "===================================";
-	    }
+	@Override
+	public String toString() {
+		return "Admin [adminId=" + adminId + ", username=" + username + ", password=" + password + ", name=" + name
+				+ ", email=" + email + ", phone=" + phone + "]";
 	}
-
-
+}
