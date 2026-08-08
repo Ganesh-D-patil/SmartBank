@@ -4,12 +4,15 @@ public class Customer {
 
     // Instance Variables
     private int customerId;
-    private String name;
-    private String mobile;
+    private String firstName;
+    private String lastName;
+    private String gender;
+    private String dob;
     private String email;
+    private String phone;
     private String address;
-    private String aadhaar;
-    private String pan;
+    private String aadharNo;
+    private String panNo;
     private String password;
 
     // Default Constructor
@@ -18,21 +21,25 @@ public class Customer {
     }
 
     // Parameterized Constructor
-    public Customer(int customerId, String name, String mobile,
-                    String email, String address,
-                    String aadhaar, String pan, String password) {
+    public Customer(int customerId, String firstName, String lastName,
+                    String gender, String dob, String email,
+                    String phone, String address,
+                    String aadharNo, String panNo, String password) {
 
         this.customerId = customerId;
-        this.name = name;
-        this.mobile = mobile;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.dob = dob;
         this.email = email;
+        this.phone = phone;
         this.address = address;
-        this.aadhaar = aadhaar;
-        this.pan = pan;
+        this.aadharNo = aadharNo;
+        this.panNo = panNo;
         this.password = password;
     }
 
-    
+    // Getters and Setters
 
     public int getCustomerId() {
         return customerId;
@@ -42,20 +49,36 @@ public class Customer {
         this.customerId = customerId;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getMobile() {
-        return mobile;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
     }
 
     public String getEmail() {
@@ -66,6 +89,14 @@ public class Customer {
         this.email = email;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     public String getAddress() {
         return address;
     }
@@ -74,20 +105,20 @@ public class Customer {
         this.address = address;
     }
 
-    public String getAadhaar() {
-        return aadhaar;
+    public String getAadharNo() {
+        return aadharNo;
     }
 
-    public void setAadhaar(String aadhaar) {
-        this.aadhaar = aadhaar;
+    public void setAadharNo(String aadharNo) {
+        this.aadharNo = aadharNo;
     }
 
-    public String getPan() {
-        return pan;
+    public String getPanNo() {
+        return panNo;
     }
 
-    public void setPan(String pan) {
-        this.pan = pan;
+    public void setPanNo(String panNo) {
+        this.panNo = panNo;
     }
 
     public String getPassword() {
@@ -98,18 +129,20 @@ public class Customer {
         this.password = password;
     }
 
-    // Display Customer Details
-
     @Override
     public String toString() {
-        return 
+
+        return "\nCustomer Details\n" +
+               "------------------------------\n" +
                "Customer ID : " + customerId + "\n" +
-               "Name        : " + name + "\n" +
-               "Mobile      : " + mobile + "\n" +
+               "First Name  : " + firstName + "\n" +
+               "Last Name   : " + lastName + "\n" +
+               "Gender      : " + gender + "\n" +
+               "DOB         : " + dob + "\n" +
                "Email       : " + email + "\n" +
+               "Phone       : " + phone + "\n" +
                "Address     : " + address + "\n" +
-               "Aadhaar No. : " + aadhaar + "\n" +
-               "PAN No.     : " + pan ;
-               
+               "Aadhaar No. : " + aadharNo + "\n" +
+               "PAN No.     : " + panNo;
     }
 }

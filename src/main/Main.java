@@ -1,6 +1,22 @@
 package main;
 
+import ui.MainMenu;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        MainMenu menu = new MainMenu();
+        menu.start();
+    }
+}
+
+
+/*
+package main;
+
 import java.sql.Connection;
+import dao.AdminDAO;
 
 import model.Account;
 import model.Admin;
@@ -23,6 +39,7 @@ public class Main {
 
         // ---------------- Customer ----------------
         Customer customer = new Customer(
+        		1,
                 101,
                 "Ganesh Patil",
                 "7887509277",
@@ -32,6 +49,19 @@ public class Main {
                 "ABCDE1234F",
                 "ganesh123"
         );
+        
+        
+        
+     // ---------------- Admin Login ----------------
+        AdminDAO adminDAO = new AdminDAO();
+
+        boolean status = adminDAO.login("Ganesh", "Ganesh123");
+
+        if (status) {
+            System.out.println("Admin Login Successful\n");
+        } else {
+            System.out.println("Invalid Username or Password\n");
+        }
 
         // ---------------- Account ----------------
         Account account = new Account(
@@ -80,3 +110,4 @@ public class Main {
 
 	
 }
+*/
