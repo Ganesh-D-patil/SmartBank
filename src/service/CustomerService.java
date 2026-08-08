@@ -55,6 +55,14 @@ public boolean deleteCustomer(int customerId) {
 
   return customerDAO.deleteCustomer(customerId);
 }
+//=========================================================
+//CUSTOMER LOGIN
+//=========================================================
+
+public Customer customerLogin(String email, String password) {
+
+ return customerDAO.customerLogin(email, password);
+}
 }
 /*package service;
 

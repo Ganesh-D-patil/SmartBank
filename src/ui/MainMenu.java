@@ -1,10 +1,13 @@
 package ui;
-
+import model.Customer;
+import service.CustomerService;
 import java.util.Scanner;
 
 import dao.AdminDAO;
 
 public class MainMenu {
+	private CustomerService customerService =
+	        new CustomerService();
 
     Scanner sc = new Scanner(System.in);
 
@@ -30,7 +33,7 @@ public class MainMenu {
                 break;
 
             case 2:
-                System.out.println("Customer Login - Coming Soon");
+                customerLogin();
                 break;
 
             case 3:
@@ -63,6 +66,53 @@ public class MainMenu {
         } else {
 
             System.out.println("\nInvalid Username or Password!");
+        }
+    }
+    private void customerLogin() {
+
+        System.out.println(
+                "\n========== CUSTOMER LOGIN ==========");
+
+        System.out.print("Enter Email : ");
+        String email = sc.nextLine();
+
+        System.out.print("Enter Password : ");
+        String password = sc.nextLine();
+
+        Customer customer =
+                customerService.customerLogin(
+                        email,
+                        password);
+
+        if (customer != null) {
+
+            System.out.println(
+                    "\n====================================");
+
+            System.out.println(
+                    "       CUSTOMER LOGIN SUCCESSFUL");
+
+            System.out.println(
+                    "====================================");
+
+            System.out.println(
+                    "Welcome "
+                    + customer.getFirstName()
+                    + " "
+                    + customer.getLastName());
+
+            System.out.println(
+                    "Customer ID : "
+                    + customer.getCustomerId());
+            CustomerMenu customerMenu =
+                    new CustomerMenu(customer);
+
+            customerMenu.showMenu();
+
+        } else {
+
+            System.out.println(
+                    "\nInvalid Email or Password!");
         }
     }
 }

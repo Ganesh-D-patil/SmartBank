@@ -260,6 +260,74 @@ public boolean deleteCustomer(int customerId) {
 
   return false;
 }
+//=========================================================
+//CUSTOMER LOGIN
+//=========================================================
+
+public Customer customerLogin(String email, String password) {
+
+ String sql = "SELECT * FROM customer "
+            + "WHERE email = ? AND password = ?";
+
+ try {
+
+     Connection con = DBConnection.getConnection();
+
+     PreparedStatement ps = con.prepareStatement(sql);
+
+     ps.setString(1, email);
+     ps.setString(2, password);
+
+     ResultSet rs = ps.executeQuery();
+
+     if (rs.next()) {
+
+         Customer customer = new Customer();
+
+         customer.setCustomerId(
+                 rs.getInt("customer_id"));
+
+         customer.setFirstName(
+                 rs.getString("first_name"));
+
+         customer.setLastName(
+                 rs.getString("last_name"));
+
+         customer.setGender(
+                 rs.getString("gender"));
+
+         customer.setDob(
+                 rs.getString("dob"));
+
+         customer.setEmail(
+                 rs.getString("email"));
+
+         customer.setPhone(
+                 rs.getString("phone"));
+
+         customer.setAddress(
+                 rs.getString("address"));
+
+         customer.setAadharNo(
+                 rs.getString("aadhar_no"));
+
+         customer.setPanNo(
+                 rs.getString("pan_no"));
+
+         customer.setPassword(
+                 rs.getString("password"));
+
+         return customer;
+     }
+
+ } catch (Exception e) {
+
+     e.printStackTrace();
+ }
+
+ return null;
+}
+
 }
 /*package dao;
 

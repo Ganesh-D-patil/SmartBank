@@ -421,4 +421,56 @@ public boolean transferMoney(long fromAccountNumber,
      }
  }
 }
+//=========================================================
+//GET ACCOUNT BY CUSTOMER ID
+//=========================================================
+
+public Account getAccountByCustomerId(int customerId) {
+
+ String sql = "SELECT * FROM account "
+            + "WHERE customer_id = ?";
+
+ try {
+
+     Connection con = DBConnection.getConnection();
+
+     PreparedStatement ps =
+             con.prepareStatement(sql);
+
+     ps.setInt(1, customerId);
+
+     ResultSet rs = ps.executeQuery();
+
+     if (rs.next()) {
+
+         Account account = new Account();
+
+         account.setAccountId(
+                 rs.getInt("account_id"));
+
+         account.setAccountNumber(
+                 rs.getLong("account_number"));
+
+         account.setCustomerId(
+                 rs.getInt("customer_id"));
+
+         account.setAccountType(
+                 rs.getString("account_type"));
+
+         account.setBalance(
+                 rs.getDouble("balance"));
+
+         account.setStatus(
+                 rs.getString("status"));
+
+         return account;
+     }
+
+ } catch (Exception e) {
+
+     e.printStackTrace();
+ }
+
+ return null;
+}
 }

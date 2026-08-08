@@ -361,7 +361,14 @@ public class AccountService {
         }
     }
     
-    
+ // =========================================================
+ // GET ACCOUNT BY CUSTOMER ID
+ // =========================================================
+
+ public Account getAccountByCustomerId(int customerId) {
+
+     return accountDAO.getAccountByCustomerId(customerId);
+ }
 }
 /*package service;
 
