@@ -95,11 +95,11 @@ public class MainMenu {
             System.out.println(
                     "====================================");
 
-            System.out.println(
+           /* System.out.println(
                     "Welcome "
                     + customer.getFirstName()
                     + " "
-                    + customer.getLastName());
+                    + customer.getLastName());*/
 
             System.out.println(
                     "Customer ID : "

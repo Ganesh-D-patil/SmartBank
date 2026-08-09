@@ -16,6 +16,8 @@ public class AccountService {
 
     private TransactionDAO transactionDAO =
             new TransactionDAO();
+    
+    
 
 
     // =========================================================
@@ -369,6 +371,102 @@ public class AccountService {
 
      return accountDAO.getAccountByCustomerId(customerId);
  }
+//=========================================================
+//ADD DEPOSIT TRANSACTION
+//=========================================================
+
+public boolean addDepositTransaction(
+      Account account,
+      double amount) {
+
+  Connection con = null;
+
+  try {
+
+      con = DBConnection.getConnection();
+
+      Transaction transaction =
+              new Transaction(
+                      0,
+                      account.getAccountId(),
+                      "DEPOSIT",
+                      amount,
+                      null,
+                      "Cash Deposit"
+              );
+
+      return transactionDAO.addTransaction(
+              con,
+              transaction);
+
+  } catch (Exception e) {
+
+      e.printStackTrace();
+
+      return false;
+
+  } finally {
+
+      try {
+
+          if (con != null) {
+              con.close();
+          }
+
+      } catch (Exception e) {
+
+          e.printStackTrace();
+      }
+  }
+}
+//=========================================================
+//ADD WITHDRAW TRANSACTION
+//=========================================================
+
+public boolean addWithdrawTransaction(
+     Account account,
+     double amount) {
+
+ Connection con = null;
+
+ try {
+
+     con = DBConnection.getConnection();
+
+     Transaction transaction =
+             new Transaction(
+                     0,
+                     account.getAccountId(),
+                     "WITHDRAW",
+                     amount,
+                     null,
+                     "Cash Withdrawal"
+             );
+
+     return transactionDAO.addTransaction(
+             con,
+             transaction);
+
+ } catch (Exception e) {
+
+     e.printStackTrace();
+
+     return false;
+
+ } finally {
+
+     try {
+
+         if (con != null) {
+             con.close();
+         }
+
+     } catch (Exception e) {
+
+         e.printStackTrace();
+     }
+ }
+}
 }
 /*package service;
 
