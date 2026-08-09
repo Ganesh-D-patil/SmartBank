@@ -549,38 +549,8 @@ Example:
 ```text
 Email: gp0834603@gmail.com
 Password: Ganesh123
-```
 
-> These are demo credentials. Use dummy credentials when sharing the project publicly.
 
----
-
-# 🔄 How the System Works
-
-The complete application works like this:
-
-```text
-                    SmartBank
-                       │
-              ┌────────┴────────┐
-              ↓                 ↓
-           Admin              Customer
-              │                 │
-              ↓                 ↓
-        Admin Dashboard   Customer Dashboard
-              │                 │
-              └────────┬────────┘
-                       ↓
-                   Service
-                       ↓
-                     DAO
-                       ↓
-                    MySQL
-```
-
-This structure keeps the project organized and makes it easier to maintain and extend.
-
----
 
 # ✅ Current Project Status
 
