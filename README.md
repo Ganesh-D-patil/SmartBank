@@ -614,7 +614,7 @@ Make sure MySQL Server is running.
 Open Command Prompt or Terminal:
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
+git clone https://github.com/Ganesh-D-patil/SmartBank
 ```
 
 Then open the cloned project in Eclipse.
