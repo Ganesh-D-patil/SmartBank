@@ -1,146 +1,282 @@
 
 # 🏦 SmartBank – Bank Management System
 
-### Project Summary
+## 📌 Project Summary
 
-**SmartBank** is a Java-based Bank Management System developed to manage basic banking activities in a simple, organized, and secure way. The system provides separate access for **Admin and Customer**, where each user can perform operations according to their role.
-
-The project uses **Core Java, JDBC, and MySQL** to build a complete banking application. It follows a simple **layered architecture** using Model, DAO, Service, and UI layers. This makes the project easy to understand, maintain, and extend.
-
-### 🎯 Problem Statement
-
-In a traditional banking system, managing customers, accounts, money transactions, and transaction records manually can be time-consuming and may lead to errors.
-
-The main problem is to create a system that can:
-
-* Manage customer information
-* Create and manage bank accounts
-* Maintain account balances
-* Perform deposits and withdrawals
-* Transfer money between accounts
-* Store transaction history
-* Provide different access for Admin and Customer
-* Keep banking data organized in a database
-
-**SmartBank solves these problems by providing a simple computerized banking system where all important banking operations are managed through Java and stored in MySQL.**
+**SmartBank** is a Java-based Bank Management System developed to manage basic banking activities in a simple, organized, and reliable way.
+The system provides separate access for **Admin and Customer**, where each user can perform operations according to their role.
+SmartBank uses **Core Java, JDBC, and MySQL** and follows a simple **layered architecture** using Model, DAO, Service, and UI layers.
+The project demonstrates how a real-world banking application can be developed using Java, Object-Oriented Programming, database connectivity, CRUD operations, business logic, and transaction management.
 
 ---
 
-## 👨‍💼 Admin Features
+# 🎯 Problem Statement
+
+Traditional manual banking processes for managing customers, accounts, balances, and transactions can be time-consuming and may lead to errors.
+
+The main problem is to develop a system that can:
+
+- Manage customer information
+- Create and manage bank accounts
+- Maintain account balances
+- Perform deposits and withdrawals
+- Transfer money between accounts
+- Maintain transaction history
+- Provide separate Admin and Customer access
+- Store banking information in a centralized database
+- Reduce manual work and improve data management
+
+**SmartBank solves these problems by providing a computerized banking system where important banking operations are handled through Java and stored in a MySQL database.**
+
+---
+
+# 🎯 Project Objectives
+
+The main objectives of SmartBank are:
+
+- To develop a simple banking management system using Java.
+- To manage customer and account information.
+- To perform basic banking operations.
+- To maintain accurate account balances.
+- To record banking transactions.
+- To implement Admin and Customer role-based access.
+- To connect a Java application with MySQL using JDBC.
+- To understand layered architecture and database relationships.
+- To gain practical experience with CRUD operations and business logic.
+
+---
+
+# 👨‍💼 Admin Features
 
 The Admin can:
 
-* Login securely
-* Add new customers
-* View all customers
-* Search customers
-* Update customer information
-* Delete customers
-* Open bank accounts
-* View accounts
-* Deposit money
-* Withdraw money
-* Transfer money
-* View transaction history
-* Logout
+- Login
+- Add new customers
+- View all customers
+- Search customers
+- Update customer information
+- Delete customers
+- Open bank accounts
+- View accounts
+- Deposit money
+- Withdraw money
+- Transfer money
+- View transaction history
+- Logout
 
 ---
 
-## 👤 Customer Features
+# 👤 Customer Features
 
 After successful login, customers can:
 
-* View their profile
-* View account details
-* Check current balance
-* Deposit money
-* Withdraw money
-* Transfer money to another account
-* View their transaction history
-* Logout
+- View their profile
+- View account details
+- Check current balance
+- Deposit money
+- Withdraw money
+- Transfer money to another account
+- View transaction history
+- Logout
 
 ---
 
-## 💰 Banking Operations
+# 💰 Banking Operations
 
-The system handles the main banking operations:
+## Deposit Money
 
-### Deposit
+When a customer deposits money:
 
-The amount is added to the customer's account balance and the transaction is recorded.
+```text
+Enter Amount
+     ↓
+Validate Amount
+     ↓
+Update Account Balance
+     ↓
+Record Transaction
+````
 
-### Withdraw
-
-The system checks the available balance before withdrawing money. If the balance is insufficient, the transaction is rejected.
-
-### Transfer
-
-The system verifies the sender and receiver accounts, checks the sender's balance, updates both accounts, and records the transaction.
-
----
-
-## 🛠️ Technologies Used
-
-| Technology    | Use                                             |
-| ------------- | ----------------------------------------------- |
-| **Java**      | Main programming language                       |
-| **Core Java** | OOP, business logic and application development |
-| **JDBC**      | Connecting Java application with MySQL          |
-| **MySQL**     | Storing customers, accounts and transactions    |
-| **Eclipse**   | Development and testing                         |
-| **Git**       | Version control                                 |
-| **GitHub**    | Project hosting and collaboration               |
+The deposit amount is added to the account balance and the transaction is recorded in the database.
 
 ---
 
-## 🏗️ Project Architecture
+## Withdraw Money
+
+When a customer withdraws money:
+
+```text
+Enter Amount
+     ↓
+Validate Amount
+     ↓
+Check Available Balance
+     ↓
+Update Account Balance
+     ↓
+Record Transaction
+```
+
+If the available balance is insufficient, the withdrawal is rejected.
+
+---
+
+## Transfer Money
+
+For a money transfer:
+
+```text
+Sender Account
+      ↓
+Receiver Account
+      ↓
+Validate Accounts
+      ↓
+Check Sender Balance
+      ↓
+Deduct Money from Sender
+      ↓
+Add Money to Receiver
+      ↓
+Record Transaction
+```
+
+The system verifies both accounts, checks the sender's balance, updates both accounts, and records the transaction.
+
+---
+
+# 🔐 Login and Access Control
+
+SmartBank provides separate login systems for:
+
+```text
+Admin
+  ↓
+Admin Dashboard
+```
+
+and
+
+```text
+Customer
+  ↓
+Customer Dashboard
+```
+
+Customers log in using their registered email and password.
+
+Admin and Customer users have different permissions and menu options.
+
+> **Security Note:** Actual database passwords, MySQL credentials, Aadhaar numbers, PAN numbers, phone numbers, and other personal information should not be stored in this public README or committed to GitHub.
+
+---
+
+# 🏗️ Project Architecture
 
 SmartBank follows a simple layered architecture:
 
 ```text
-User
- ↓
-UI Layer
- ↓
-Service Layer
- ↓
-DAO Layer
- ↓
-MySQL Database
+              User
+                ↓
+             UI Layer
+                ↓
+          Service Layer
+                ↓
+             DAO Layer
+                ↓
+          MySQL Database
 ```
 
-### Model Layer
+## Model Layer
 
-Contains classes such as:
+The Model layer represents the application's data.
+
+Main model classes include:
 
 ```text
+Admin
 Customer
 Account
 Transaction
-Admin
 ```
-
-### UI Layer
-
-Handles user input and displays the application menus.
-
-### Service Layer
-
-Contains the main business logic.
-
-### DAO Layer
-
-Handles database operations using JDBC.
-
-### Database
-
-MySQL stores all important banking data.
 
 ---
 
-## 🗄️ Database
+## UI Layer
 
-The project uses a MySQL database named:
+The UI layer handles user input and displays menus and results.
+
+Main UI classes include:
+
+```text
+MainMenu
+AdminMenu
+CustomerMenu
+```
+
+---
+
+## Service Layer
+
+The Service layer contains the main business logic of the application.
+
+It handles operations such as:
+
+* Customer management
+* Account management
+* Balance checking
+* Deposit processing
+* Withdrawal processing
+* Money transfer
+* Transaction management
+* Validation
+
+---
+
+## DAO Layer
+
+DAO stands for **Data Access Object**.
+
+The DAO layer communicates with the MySQL database using JDBC.
+
+Main DAO classes include:
+
+```text
+AdminDAO
+CustomerDAO
+AccountDAO
+TransactionDAO
+```
+
+The DAO layer performs operations such as:
+
+* Insert
+* Select
+* Update
+* Delete
+* Search
+
+---
+
+## Utility Layer
+
+The utility layer contains common utility classes.
+
+For example:
+
+```text
+DBConnection.java
+```
+
+`DBConnection.java` is responsible for creating the connection between the Java application and MySQL.
+
+---
+
+# 🗄️ Database
+
+SmartBank uses **MySQL** as its database.
+
+Database name:
 
 ```text
 smartbank
@@ -155,107 +291,63 @@ account
 transaction_history
 ```
 
-The database maintains relationships between customers, their accounts, and their transactions.
+The database maintains relationships between customers, accounts, and transactions.
 
 ---
 
-## 🔐 Security and Validation
+## Customer Table
 
-The project includes basic validation such as:
+The customer table stores customer information such as:
 
-* Login authentication
-* Unique customer email and phone
-* Unique Aadhaar and PAN
-* Checking whether an account exists
-* Checking account status
-* Preventing withdrawal when balance is insufficient
-* Preventing transfer to the same account
-* Checking receiver account before transfer
-* Validating transaction amounts
-
----
-
-## 🔄 Basic Application Flow
-
-```text
-                SmartBank
-                   │
-          ┌────────┴────────┐
-          ↓                 ↓
-       Admin              Customer
-          ↓                 ↓
- Admin Dashboard     Customer Dashboard
-          │                 │
-          └────────┬────────┘
-                   ↓
-              Service Layer
-                   ↓
-                DAO Layer
-                   ↓
-              MySQL Database
-```
+* Customer ID
+* Name
+* Gender
+* Date of Birth
+* Email
+* Phone
+* Address
+* Aadhaar Number
+* PAN Number
+* Password
 
 ---
 
-## ⭐ Key Benefits
+## Account Table
 
-* Simple and easy-to-use banking system
-* Separate Admin and Customer access
-* Centralized database management
-* Automatic balance updates
-* Transaction records are maintained
-* Reduces manual work
-* Easy to maintain because of layered architecture
-* Can be extended with a graphical or web interface in the future
+The account table stores:
 
----
-
-## 🚀 Future Improvements
-
-The project can be improved further by adding:
-
-* Modern graphical user interface
-* Dynamic Admin Dashboard
-* Dynamic Customer Dashboard
-* Password encryption
-* OTP authentication
-* Email/SMS notifications
-* PDF bank statements
-* Charts and reports
-* Spring Boot REST API
-* Web or mobile application
+* Account ID
+* Account Number
+* Customer ID
+* Account Type
+* Balance
+* Account Status
+* Account Creation Date
 
 ---
 
-## 🎓 Project Objective
+## Transaction History Table
 
-The main objective of SmartBank is to understand how a real-world banking application can be developed using **Java, JDBC, database management, OOP concepts, and layered architecture**.
+The transaction history table stores:
 
-It provides practical experience in:
-
-**Java + OOP + JDBC + MySQL + CRUD Operations + Database Relationships + Business Logic + Git/GitHub**
-
-### One-line summary for your resume
-
-> **SmartBank is a Java-based Bank Management System that manages customers, accounts, balances, deposits, withdrawals, transfers, and transaction history using Core Java, JDBC, and MySQL.**
-
----
-
-## 🎯 Main Objective
-
-The main objective of SmartBank is to create a simple banking system where:
-
-* Customer information can be managed easily.
-* Bank accounts can be created and managed.
-* Money can be deposited and withdrawn.
-* Money can be transferred between accounts.
-* Every important transaction can be stored in the database.
-* Admin and Customer have different access and features.
+* Transaction ID
+* Account ID
+* Transaction Type
+* Amount
+* Transaction Date
+* Description
 
 ---
 
+## Admin Table
 
-### Admin Flow
+The admin table stores administrator login and related information required for Admin access.
+
+---
+
+# 🔄 Application Flow
+
+## Admin Flow
 
 ```text
 Admin Login
@@ -275,8 +367,7 @@ Logout
 
 ---
 
-
-### Customer Flow
+## Customer Flow
 
 ```text
 Customer Login
@@ -296,198 +387,18 @@ Logout
 
 ---
 
-# 💰 Banking Operations
-
-### Deposit Money
-
-When a customer deposits money:
-
-```text
-Enter Amount
-     ↓
-Validate Amount
-     ↓
-Update Account Balance
-     ↓
-Save Transaction
-```
-
-### Withdraw Money
-
-When a customer withdraws money:
-
-```text
-Enter Amount
-     ↓
-Check Available Balance
-     ↓
-Update Account Balance
-     ↓
-Save Transaction
-```
-
-If the customer does not have enough money, the withdrawal is rejected.
-
-### Transfer Money
-
-For money transfer:
-
-```text
-Sender Account
-      ↓
-Receiver Account
-      ↓
-Check Accounts
-      ↓
-Check Sender Balance
-      ↓
-Deduct Money from Sender
-      ↓
-Add Money to Receiver
-      ↓
-Save Transaction
-```
-
-This makes the transfer process safer and keeps the account balances updated.
-
----
-
-# 🗄️ Database
-
-SmartBank uses **MySQL** to store and manage data.
-
-### Main Tables
-
-```text
-admin
-customer
-account
-transaction_history
-```
-
-### Customer Table
-
-Stores information such as:
-
-* Customer ID
-* First Name
-* Last Name
-* Gender
-* Date of Birth
-* Email
-* Phone
-* Address
-* Aadhaar Number
-* PAN Number
-* Password
-
-### Account Table
-
-Stores:
-
-* Account ID
-* Account Number
-* Customer ID
-* Account Type
-* Balance
-* Account Status
-* Account Creation Date
-
-### Transaction History
-
-Stores:
-
-* Transaction ID
-* Account ID
-* Transaction Type
-* Amount
-* Transaction Date
-* Description
-
----
-
-# 🏗️ Project Architecture
-
-We use a simple **layered architecture**:
-
-```text
-        User
-          ↓
-         UI
-          ↓
-       Service
-          ↓
-         DAO
-          ↓
-       MySQL
-```
-
-### UI Layer
-
-The UI takes input from the user and displays the output.
-
-Examples:
-
-```text
-MainMenu
-AdminMenu
-CustomerMenu
-```
-
-### Service Layer
-
-The Service layer contains the **main business logic**.
-
-For example:
-
-* Checking balance
-* Validating transactions
-* Processing transfers
-* Managing customer operations
-
-### DAO Layer
-
-DAO stands for **Data Access Object**.
-
-The DAO layer communicates with MySQL.
-
-Examples:
-
-```text
-AdminDAO
-CustomerDAO
-AccountDAO
-TransactionDAO
-```
-
-### Model Layer
-
-The Model classes represent our data.
-
-```text
-Admin
-Customer
-Account
-Transaction
-```
-
-### Utility Layer
-
-`DBConnection.java` is responsible for creating the connection between Java and MySQL.
-
----
-
 # 🛠️ Technologies Used
 
-| Technology | Purpose                        |
-| ---------- | ------------------------------ |
-| Java       | Main programming language      |
-| Core Java  | Application logic              |
-| JDBC       | Connect Java with MySQL        |
-| MySQL      | Store application data         |
-| Eclipse    | Development environment        |
-| Git        | Version control                |
-| GitHub     | Code storage and collaboration |
+| Technology          | Purpose                                                      |
+| ------------------- | ------------------------------------------------------------ |
+| **Java**            | Main programming language                                    |
+| **Core Java**       | OOP, business logic, collections and application development |
+| **JDBC**            | Connects Java application with MySQL                         |
+| **MySQL**           | Stores customers, accounts and transaction data              |
+| **Eclipse IDE**     | Development and testing                                      |
+| **Git**             | Version control                                              |
+| **GitHub**          | Source code hosting and project management                   |
+| **MySQL Workbench** | Database development and management                          |
 
 ---
 
@@ -496,96 +407,139 @@ Transaction
 ```text
 SmartBank
 │
-├── dao
-│   ├── AdminDAO.java
-│   ├── CustomerDAO.java
-│   ├── AccountDAO.java
-│   └── TransactionDAO.java
+├── src
+│   │
+│   ├── dao
+│   │   ├── AdminDAO.java
+│   │   ├── CustomerDAO.java
+│   │   ├── AccountDAO.java
+│   │   └── TransactionDAO.java
+│   │
+│   ├── model
+│   │   ├── Admin.java
+│   │   ├── Customer.java
+│   │   ├── Account.java
+│   │   └── Transaction.java
+│   │
+│   ├── service
+│   │   ├── CustomerService.java
+│   │   ├── AccountService.java
+│   │   └── TransactionService.java
+│   │
+│   ├── ui
+│   │   ├── MainMenu.java
+│   │   ├── AdminMenu.java
+│   │   └── CustomerMenu.java
+│   │
+│   ├── util
+│   │   └── DBConnection.java
+│   │
+│   └── main
+│       └── Main.java
 │
-├── model
-│   ├── Admin.java
-│   ├── Customer.java
-│   ├── Account.java
-│   └── Transaction.java
+├── database
+│   └── smartbank.sql
 │
-├── service
-│   ├── CustomerService.java
-│   ├── AccountService.java
-│   └── TransactionService.java
-│
-├── ui
-│   ├── MainMenu.java
-│   ├── AdminMenu.java
-│   └── CustomerMenu.java
-│
-├── util
-│   └── DBConnection.java
-│
-├── main
-│   └── Main.java
-│
-└── README.md
+├── README.md
+├── .gitignore
+├── .classpath
+└── .project
 ```
 
 ---
 
-# 🔐 Login System
+# 🔐 Security and Validation
 
-SmartBank provides separate login systems for Admin and Customer.
+The project includes basic validation and security checks such as:
 
-### Admin Login
+* Admin authentication
+* Customer authentication
+* Unique customer email
+* Unique customer phone
+* Unique Aadhaar number
+* Unique PAN number
+* Account existence validation
+* Account status validation
+* Transaction amount validation
+* Insufficient balance checking
+* Receiver account validation
+* Prevention of transfer to the same account
+* Database-level constraints where applicable
 
-```text
-Username: Ganesh
-Password: Ganesh123
-```
-
-### Customer Login
-
-Customer uses the email and password stored in the database.
-
-Example:
-
-```text
-Email: gp0834603@gmail.com
-Password: Ganesh123
-
-
-
-# ✅ Current Project Status
-
-The main banking features are completed and tested.
-
-### Admin Module
-
-**100% Complete ✅**
-
-### Customer Module
-
-**100% Complete ✅**
-
-### Database Integration
-
-**100% Complete ✅**
-
-### Banking Operations
-
-**100% Complete ✅**
-
-### Testing
-
-**Completed ✅**
+> **Note:** The current project uses basic authentication. Password hashing/encryption and advanced authentication can be added in future versions.
 
 ---
 
+# ⭐ Key Benefits
 
-# 🚀 SmartBank Project Setup
+SmartBank provides:
 
-Follow these steps to run SmartBank on a new computer.
+* Simple and organized banking operations
+* Separate Admin and Customer access
+* Centralized database management
+* Automatic balance updates
+* Transaction history management
+* CRUD operations for customer and account management
+* Validation for important banking operations
+* Layered architecture for easier maintenance
+* Easy database setup using the included SQL file
+* Easy source-code management using Git and GitHub
+
+---
+
+# 🚀 Future Improvements
+
+The project can be extended with:
+
+* Modern graphical user interface
+* Dynamic Admin Dashboard
+* Dynamic Customer Dashboard
+* Password hashing and encryption
+* OTP authentication
+* Email and SMS notifications
+* PDF bank statements
+* Charts and financial reports
+* Spring Boot REST API
+* Web application
+* Mobile application
+* Role-based security using Spring Security
+* Automated testing
+
+---
+
+# 📊 Current Project Status
+
+The core SmartBank banking functionality has been implemented and tested.
+
+| Module                  | Status      |
+| ----------------------- | ----------- |
+| Admin Login             | ✅ Completed |
+| Customer Login          | ✅ Completed |
+| Customer Management     | ✅ Completed |
+| Account Management      | ✅ Completed |
+| View Profile            | ✅ Completed |
+| View Account            | ✅ Completed |
+| Check Balance           | ✅ Completed |
+| Deposit Money           | ✅ Completed |
+| Withdraw Money          | ✅ Completed |
+| Transfer Money          | ✅ Completed |
+| Transaction History     | ✅ Completed |
+| Database Integration    | ✅ Completed |
+| Admin Module            | ✅ Completed |
+| Customer Module         | ✅ Completed |
+| Core Testing            | ✅ Completed |
+| Database SQL Setup File | ✅ Added     |
+| README Documentation    | ✅ Completed |
+
+---
+
+# 🚀 Project Setup
+
+Follow these steps to run SmartBank on another computer.
 
 ## 1. Install Required Software
 
-Install:
+Install the following:
 
 * **JDK 17 or above**
 * **Eclipse IDE**
@@ -609,17 +563,27 @@ Make sure MySQL Server is running.
 
 ---
 
-## 2. Clone the Project
+# 2. Clone the Project
 
 Open Command Prompt or Terminal:
 
 ```bash
-git clone https://github.com/Ganesh-D-patil/SmartBank
+git clone https://github.com/Ganesh-D-patil/SmartBank.git
 ```
 
-Then open the cloned project in Eclipse.
+Move into the project:
 
-In Eclipse:
+```bash
+cd SmartBank
+```
+
+---
+
+# 3. Import the Project into Eclipse
+
+Open Eclipse.
+
+Go to:
 
 ```text
 File
@@ -629,19 +593,21 @@ File
 → Finish
 ```
 
+Make sure you select the complete project folder, not only the `src` folder.
+
 ---
 
-## 3. Create the MySQL Database
+# 4. Create the MySQL Database
 
 Open **MySQL Workbench**.
 
-Run:
+Create the database:
 
 ```sql
 CREATE DATABASE smartbank;
 ```
 
-Then:
+Then select it:
 
 ```sql
 USE smartbank;
@@ -649,18 +615,34 @@ USE smartbank;
 
 ---
 
-## 4. Create the Tables
+# 5. Run the SQL File
 
-The project should contain:
+The project contains:
 
 ```text
 database/
 └── smartbank.sql
 ```
 
-Open `smartbank.sql` in MySQL Workbench and execute it.
+Open:
 
-It will create:
+```text
+database/smartbank.sql
+```
+
+in MySQL Workbench and execute the SQL script.
+
+The script creates the required database tables and may contain safe sample/demo data.
+
+After execution, verify the tables:
+
+```sql
+USE smartbank;
+
+SHOW TABLES;
+```
+
+Expected tables:
 
 ```text
 admin
@@ -669,11 +651,9 @@ account
 transaction_history
 ```
 
-It should also contain some **sample/demo data**.
-
 ---
 
-## 5. Configure Database Connection
+# 6. Configure Database Connection
 
 Open:
 
@@ -683,7 +663,7 @@ src
     └── DBConnection.java
 ```
 
-Update the MySQL details:
+Configure the database connection according to the local MySQL installation:
 
 ```java
 String url = "jdbc:mysql://localhost:3306/smartbank";
@@ -697,19 +677,21 @@ Replace:
 YOUR_MYSQL_PASSWORD
 ```
 
-with the MySQL password of that computer.
+with the MySQL password of the local computer.
 
-### Important
+### Important Security Rule
 
-Do **not** upload your actual MySQL password to GitHub.
+**Never commit your actual MySQL password to GitHub.**
+
+For a public repository, use a local configuration method or environment variable instead of storing the password directly in source code.
 
 ---
 
-## 6. Add MySQL JDBC Driver
+# 7. Add MySQL JDBC Driver
 
 SmartBank uses JDBC to connect Java with MySQL.
 
-Make sure **MySQL Connector/J** is added to the Eclipse project's Build Path.
+Make sure **MySQL Connector/J** is available in the Eclipse project.
 
 In Eclipse:
 
@@ -725,7 +707,7 @@ Select the MySQL Connector/J `.jar` file.
 
 ---
 
-## 7. Run the Project
+# 8. Run the Project
 
 Open:
 
@@ -743,7 +725,9 @@ Main.java
 → Java Application
 ```
 
-You should see:
+The application should display the main menu.
+
+For example:
 
 ```text
 1. Admin Login
@@ -753,25 +737,13 @@ You should see:
 
 ---
 
-# 🔐 Demo Login
+# 🔑 Demo Login
 
-### Admin
+The SQL file can contain safe demo users for testing.
 
-```text
-Username : Ganesh
-Password : Ganesh123
-```
+Use the credentials provided in the SQL file or create your own user through the application.
 
-### Customer
-
-Use the customer account created in the SQL file.
-
-Example:
-
-```text
-Email    : gp0834603@gmail.com
-Password : Ganesh123
-```
+**Do not use real personal information or real passwords in the demo database.**
 
 ---
 
@@ -781,7 +753,7 @@ Password : Ganesh123
 
 ### Solution
 
-Install JDK and add Java to the system PATH.
+Install the JDK and configure the Java PATH.
 
 Check:
 
@@ -800,16 +772,21 @@ Check:
 ✓ Database name is smartbank
 ✓ Username is correct
 ✓ Password is correct
-✓ Port is 3306
+✓ MySQL port is correct
+✓ JDBC driver is available
 ```
 
-Also check `DBConnection.java`.
+Also check:
+
+```text
+DBConnection.java
+```
 
 ---
 
 ## Problem 3 — `Unknown database 'smartbank'`
 
-Run:
+Create the database:
 
 ```sql
 CREATE DATABASE smartbank;
@@ -825,7 +802,7 @@ database/smartbank.sql
 
 ## Problem 4 — `Table doesn't exist`
 
-Example:
+For example:
 
 ```text
 Table 'smartbank.customer' doesn't exist
@@ -833,7 +810,13 @@ Table 'smartbank.customer' doesn't exist
 
 ### Solution
 
-Open `smartbank.sql` in MySQL Workbench and execute it again.
+Execute:
+
+```text
+database/smartbank.sql
+```
+
+again in MySQL Workbench.
 
 Then check:
 
@@ -843,29 +826,17 @@ USE smartbank;
 SHOW TABLES;
 ```
 
-You should see:
-
-```text
-admin
-customer
-account
-transaction_history
-```
-
 ---
 
 ## Problem 5 — `Access denied for user 'root'`
 
-This means the MySQL username/password is wrong.
+This means the MySQL username or password is incorrect.
 
-Update:
+Update the local values in:
 
-```java
-String username = "root";
-String password = "YOUR_MYSQL_PASSWORD";
+```text
+DBConnection.java
 ```
-
-in `DBConnection.java`.
 
 ---
 
@@ -873,35 +844,37 @@ in `DBConnection.java`.
 
 ### Solution
 
-MySQL Connector/J is missing.
+The MySQL JDBC driver is missing.
 
-Add the MySQL Connector/J `.jar` to the Eclipse **Build Path**.
+Add the **MySQL Connector/J** `.jar` file to the Eclipse Build Path.
 
 ---
 
 ## Problem 7 — `Communications link failure`
 
-Usually MySQL Server is not running.
+Usually this means that MySQL Server is not running or the connection settings are incorrect.
 
 ### Solution
 
-Start **MySQL Server** and run the project again.
+1. Start MySQL Server.
+2. Check the username.
+3. Check the password.
+4. Check the database name.
+5. Check the MySQL port.
 
 ---
 
-## Problem 8 — Port 3306 problem
+## Problem 8 — MySQL Port Problem
 
-Your MySQL server may be running on another port.
+The default MySQL port is usually:
 
-Check the MySQL port in Workbench.
-
-If it is different, change:
-
-```java
-jdbc:mysql://localhost:3306/smartbank
+```text
+3306
 ```
 
-For example, if the port is `3307`:
+If MySQL is running on another port, update the JDBC URL.
+
+For example:
 
 ```java
 jdbc:mysql://localhost:3307/smartbank
@@ -909,9 +882,21 @@ jdbc:mysql://localhost:3307/smartbank
 
 ---
 
-## Problem 9 — Project does not appear correctly in Eclipse
+## Problem 9 — Project Does Not Import Correctly
 
-Make sure you import the **whole SmartBank project folder**, not only the `src` folder.
+Make sure you import the complete:
+
+```text
+SmartBank
+```
+
+project folder.
+
+Do not import only:
+
+```text
+src
+```
 
 Use:
 
@@ -923,9 +908,9 @@ File
 
 ---
 
-## Problem 10 — Customer/Admin login doesn't work
+## Problem 10 — Admin or Customer Login Does Not Work
 
-First check whether the data exists:
+Check whether the required data exists:
 
 ```sql
 USE smartbank;
@@ -935,7 +920,7 @@ SELECT * FROM admin;
 SELECT * FROM customer;
 ```
 
-If the tables are empty, execute the sample data section of:
+If the tables are empty, check the sample data in:
 
 ```text
 database/smartbank.sql
@@ -943,31 +928,146 @@ database/smartbank.sql
 
 ---
 
-# ✅ Quick Setup Summary
+# 🧪 Basic Testing
 
-For someone who wants the shortest version:
+The following major operations should be tested:
+
+### Admin
+
+* Admin login
+* Add customer
+* View customers
+* Search customer
+* Update customer
+* Delete customer
+* Create account
+* View account
+* Deposit
+* Withdraw
+* Transfer
+* Transaction history
+* Logout
+
+### Customer
+
+* Customer login
+* View profile
+* View account
+* Check balance
+* Deposit
+* Withdraw
+* Transfer
+* Transaction history
+* Logout
+
+### Validation
+
+Test cases should include:
+
+* Invalid login
+* Invalid amount
+* Insufficient balance
+* Invalid account number
+* Invalid receiver account
+* Transfer to same account
+* Invalid customer information
+* Database connection failure
+
+---
+
+# 📦 Database Setup for Another System
+
+The project includes:
 
 ```text
-1. Install JDK
-        ↓
-2. Install Eclipse
-        ↓
-3. Install MySQL + Workbench
-        ↓
-4. Clone SmartBank from GitHub
-        ↓
-5. Open project in Eclipse
-        ↓
-6. Create smartbank database
-        ↓
-7. Run database/smartbank.sql
-        ↓
-8. Configure DBConnection.java
-        ↓
-9. Add MySQL Connector/J
-        ↓
-10. Run Main.java
-        ↓
-11. Login and use SmartBank
+database/smartbank.sql
 ```
+
+This file makes database setup easier for anyone who clones the project.
+
+The basic process is:
+
+```text
+Clone Project
+      ↓
+Install MySQL
+      ↓
+Create smartbank Database
+      ↓
+Execute smartbank.sql
+      ↓
+Tables Created
+      ↓
+Configure DBConnection.java
+      ↓
+Run Main.java
+```
+
+The SQL file is a **database setup script**. It does not connect the remote computer to the developer's local MySQL database. Each user runs the SQL file on their own MySQL installation.
+
+---
+
+# 📌 One-Line Resume Description
+
+> **SmartBank is a Java-based Bank Management System that manages customers, accounts, balances, deposits, withdrawals, transfers, and transaction history using Core Java, JDBC, and MySQL.**
+
+---
+
+# 🎓 Project Learning
+
+Through this project, we gained practical experience in:
+
+```text
+Core Java
+     +
+OOP Concepts
+     +
+JDBC
+     +
+MySQL
+     +
+CRUD Operations
+     +
+Database Relationships
+     +
+Business Logic
+     +
+Validation
+     +
+Layered Architecture
+     +
+Git & GitHub
+```
+
+---
+
+# 👨‍💻 Project Information
+
+**Project Name:** SmartBank – Bank Management System
+
+**Type:** Java Console-Based Banking Application
+
+**Backend:** Core Java + JDBC
+
+**Database:** MySQL
+
+**IDE:** Eclipse
+
+**Version Control:** Git
+
+**Repository:** GitHub
+
+---
+
+# ⭐ Conclusion
+
+SmartBank is a simple banking application developed to understand the design and implementation of a real-world banking system.
+
+The project combines **Java, OOP, JDBC, MySQL, CRUD operations, business logic, validation, layered architecture, and Git/GitHub** into one practical application.
+
+The current system provides separate Admin and Customer functionality and supports the major banking operations required for a basic Bank Management System.
+
+The architecture also provides a foundation for future improvements such as a graphical interface, web application, REST APIs, stronger security, notifications, and reporting.
+
+````
 
